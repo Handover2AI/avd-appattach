@@ -49,6 +49,9 @@ This repository contains a PowerShell script to automate the lifecycle of a sing
 - `$resourcegroup_publish` = "rg-avd-sam-uks-service-obj"
 - `$hostpool_assign` = "multi-session-pool-sam-uks-001","multi-session-pool-ind-uks-001"
 - `$usergroup_assign` = "APP-KK-AVD-SAM-Pooled-Desktop-Users","APP-KK-AVD-IND-Pooled-Desktop-Users"
+- `$ImageIsRegularRegistration` = $false means on-demand registration; set to $true to register at logon.
+- `$ImageIsActive` = $true keeps the app active; set to $false to stage but not activate.
+- `$FailHealthCheckOnStagingFailure` = NeedsAssistance is what you will see in session host vm's health status for AppAttach health check. Other options are "Unhealthy" and "Donotfail".
 
 ## Notes
 
@@ -58,6 +61,4 @@ This repository contains a PowerShell script to automate the lifecycle of a sing
 - `$app | Format-List *` - If multiple package objects are returned (e.g., x64 and x86 versions), use the PackageFullName parameter to select the correct package.
   ```powershell
   $app = Import-AzWvdAppAttachPackageInfo @parameters_package | Where-Object { $_.ImagePackageFullName -like "*$packageFullName*" }
-- `$ImageIsRegularRegistration` = $false means on-demand registration; set to $true to register at logon.
-- `$ImageIsActive` = $true keeps the app active; set to $false to stage but not activate.
-- `$FailHealthCheckOnStagingFailure` = NeedsAssistance is what you will see in AVD health status for AppAttach health check.
+
