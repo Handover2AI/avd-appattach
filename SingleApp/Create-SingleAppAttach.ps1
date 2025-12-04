@@ -50,12 +50,12 @@ $app | Format-List *
 # Parameters to publish the App Attach app
 $parameters_publish = @{
     Name                          = $app_name
-    ResourceGroupName             = $resourcegroup_publish # Resource group where the app object resides
+    ResourceGroupName             = $resourcegroup_publish # Resource group where the app object will reside.
     Location                      = $location
-    FailHealthCheckOnStagingFailure = "NeedsAssistance" # Options: "NeedsAssistance", "Unhealthy", "Donotfail"
-    ImageIsRegularRegistration    = $false # $false means on-demand registration; set to $true to register at logon.
+    FailHealthCheckOnStagingFailure = "NeedsAssistance"
+    ImageIsRegularRegistration    = $false
     ImageDisplayName              = $app_name
-    ImageIsActive                 = $true # $true keeps the app active; set to $false to stage but not activate.
+    ImageIsActive                 = $true
 }
 
 # Create the App Attach app
@@ -100,29 +100,22 @@ foreach ($groupId in $usergroupIds) {
 
 
 ## --------------------- Start [Unassign hostpools from Appattach app] --------------------- ##
-
 # $parameters_hostpool_assign = @{
 #    Name = $app_name
 #    ResourceGroupName = $resourcegroup_publish
 #    HostPoolReference = @()
 # }
-
 # Update-AzWvdAppAttachPackage @parameters_hostpool_assign
-
 ## --------------------- End [Unassign hostpools from Appattach app] ----------------------- ##
 
 ## --------------------- Start [Unassign usergroups from Appattach app] -------------------- ##
-
 # $appAttachPackage = Get-AzWvdAppAttachPackage -Name $app_name -ResourceGroupName $resourcegroup_publish
 
 # foreach ($groupId in $usergroupIds) {
 #   Remove-AzRoleAssignment -ObjectId $groupId -RoleDefinitionName "Desktop Virtualization User" -Scope $appAttachPackage.Id
 # }
-
 ## --------------------- End [Unassign usergroups from Appattach app] ---------------------- ##
 
 ## --------------------- Start [Remove Appattach app] -------------------------------------- ##
-
 # Remove-AzWvdAppAttachPackage -Name $app_name -ResourceGroupName $resourcegroup_publish
-
 ## --------------------- End [Remove Appattach app] ---------------------------------------- ##
