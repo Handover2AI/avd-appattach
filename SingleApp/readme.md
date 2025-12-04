@@ -37,7 +37,7 @@ This repository contains a PowerShell script to automate the lifecycle of a sing
    ```powershell
    Connect-AzAccount
    Connect-MgGraph -Scopes 'Group.Read.All'
-   .\Publish-AppAttach.ps1
+   .\Create-SingleAppAttach.ps1
 
 ## Example 
 
