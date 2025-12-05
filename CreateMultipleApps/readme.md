@@ -6,8 +6,8 @@ This script automates the **bulk creation and assignment of Azure Virtual Deskto
 
 ## 📑 Prerequisites
 
-- Azure PowerShell module **Az.DesktopVirtualization**
-- Microsoft Graph PowerShell module
+- Azure PowerShell module [Az.DesktopVirtualization](https://learn.microsoft.com/powershell/azure/new-azureps-module-az) PowerShell module
+- [Microsoft.Graph](https://learn.microsoft.com/powershell/microsoftgraph/overview) PowerShell module
 - A valid CSV file (`AppAttachApps_Complete.csv`) containing app definitions
   - Either exported via the two‑step workflow ([Get-AllAppAttachStep1.ps1 and Get-AllAppAttachStep2.ps1](https://github.com/Handover2AI/avd-appattach/tree/main/GetAllApps))
     - Ensure that values are filled properly for:
