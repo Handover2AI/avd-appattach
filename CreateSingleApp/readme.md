@@ -1,4 +1,4 @@
-# Azure Virtual Desktop App Attach Automation
+# Azure Virtual Desktop App Attach Automation for Single App
 
 This repository contains a PowerShell script to automate the lifecycle of a single **App Attach** application in Azure Virtual Desktop (AVD).
 
