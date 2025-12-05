@@ -34,10 +34,17 @@ To balance speed and completeness, we recommend a **two-step process**:
 
 - **Automation aid**  
   - The exported CSV can be used directly as input for your **bulk App Attach creation scripts**.  
-  - For example, you can feed `AppAttachApps_Complete.csv` into a loop that publishes multiple apps, assigns them to host pools, and assigns user groups — all at once.
+  - For example, you can feed `AppAttachApps_Complete.csv` into [a loop that publishes multiple apps, assigns them to host pools, and assigns user groups — all at once.](https://github.com/Handover2AI/avd-appattach/tree/main/CreateMultipleApps)
 
 - **Round‑trip workflow**  
   - Export existing apps → edit or extend the CSV → re‑import to create/update multiple apps consistently.
+
+---
+
+## 📌 Note on `hostpool_packagepull` and `resourcegroup_hostpool_packagepull`:  
+  These two columns are intentionally left **empty** in both Step 1 and Step 2 export scripts because the App Attach package object does not store the original host pool and resource group used during package import.
+  
+  When you later use the exported CSV as input for [**`Create-MultipleAppAttach.ps1`**](https://github.com/Handover2AI/avd-appattach/tree/main/CreateMultipleApps), you can manually fill in these columns with the correct values for each app. This ensures the script knows which host pool to pull package information from (`hostpool_packagepull`) and which resource group that host pool resides in (`resourcegroup_hostpool_packagepull`).
 
 ---
 
@@ -57,3 +64,6 @@ This naming convention makes it clear which script is for the fast export and wh
 |   Export Step 1  | --->  |   Export Step 2  | --->  |   Bulk Creation  |
 |  Fast CSV (IDs)  |       | Enriched CSV     |       |  Import & Assign |
 +------------------+       +------------------+       +------------------+
+
+
+
