@@ -64,6 +64,3 @@ This naming convention makes it clear which script is for the fast export and wh
 |   Export Step 1  | --->  |   Export Step 2  | --->  |   Bulk Creation  |
 |  Fast CSV (IDs)  |       | Enriched CSV     |       |  Import & Assign |
 +------------------+       +------------------+       +------------------+
-
-
-
