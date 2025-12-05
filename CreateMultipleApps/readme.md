@@ -1,4 +1,4 @@
-# # Azure Virtual Desktop App Attach Automation for Multiple App
+# Azure Virtual Desktop App Attach Automation for Multiple App
 
 This script automates the **bulk creation and assignment of Azure Virtual Desktop (AVD) App Attach apps** using definitions stored in a CSV file. It is the companion to [Create-SingleAppAttach.ps1](https://github.com/Handover2AI/avd-appattach/tree/main/CreateSingleApp), but designed to process multiple apps in one run.
 
